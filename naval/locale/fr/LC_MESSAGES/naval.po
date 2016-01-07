@@ -1,0 +1,97 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: naval 0.1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-01-06 16:10+0100\n"
+"PO-Revision-Date: 2016-01-06 18:15+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.6\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: core.py:329
+#, python-brace-format
+msgid "Unexpected key {key}."
+msgstr "Clé inattendue {key}."
+
+#: core.py:349
+msgid "Field is missing."
+msgstr "Champ manquant."
+
+#: core.py:372
+msgid "Couldn't compute field."
+msgstr "Le champ n'a pas pu être calculé."
+
+#: core.py:566 core.py:578 core.py:841
+msgid "Incorrect value."
+msgstr "Valeur incorrecte."
+
+#: core.py:661
+#, python-format
+msgid "Item #%s: "
+msgstr "Element #%s:"
+
+#: core.py:711
+#, python-brace-format
+msgid "Wrong type. Expected {type}. Got {wrong_type} instead."
+msgstr "Type incorrect. {type} attendu. Trouvé {wrong_type}."
+
+#: core.py:718
+#, python-brace-format
+msgid "Wrong type. Expected one of {types}. Got {wrong_type} instead."
+msgstr "Type incorrect. Devrait être parmi {types}. Trouvé {wrong_type}."
+
+#: core.py:761
+msgid "This value shouldn't be empty."
+msgstr "Cette valeur ne devrait pas être vide."
+
+#: core.py:762
+#, python-brace-format
+msgid "The value is too short. Min length is {min_length}."
+msgstr "Trop court. Longueur minimale: {min_length}."
+
+#: core.py:763
+#, python-brace-format
+msgid "The value is too long. Max length is {max_length}."
+msgstr "Trop long. Longueur maximale: {max_length}."
+
+#: core.py:764
+#, python-brace-format
+msgid "The length should be {length}."
+msgstr "La longueur devrait être {length}."
+
+#: core.py:807
+#, python-brace-format
+msgid "The minimum is {min}."
+msgstr "Le minimum est {min}."
+
+#: core.py:808
+#, python-brace-format
+msgid "The maximum is {max}."
+msgstr "Le maximum est {max}."
+
+#: core.py:871
+msgid "This should be an integer."
+msgstr "Cela devrait être un entier."
+
+#: core.py:872
+msgid "This should be a number."
+msgstr "Cela devrait être un nombre."
+
+#: util.py:9
+msgid "This is not a valid email address."
+msgstr "Ce n'est pas une adresse e-mail valide."
+
+#: util.py:24
+msgid "This is not a valid url."
+msgstr "Ce n'est pas une url valide."
+

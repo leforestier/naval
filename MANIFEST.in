@@ -1,0 +1,4 @@
+include README.rst
+recursive-include naval *.py *.pot *.po *.mo
+
+
