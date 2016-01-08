@@ -93,7 +93,7 @@ Supply a ``lang`` keyword argument to the ``validate`` method to obtain translat
 """
 
 __author__ = "Benjamin Le Forestier (benjamin@leforestier.org)"
-__version__ = '0.5.0'
+__version__ = '0.5.1'
 
 from naval.core import *
 from naval.util import Email, Url
