@@ -111,7 +111,7 @@ def Default(val):
         
         This would generate a random username if no username was supplied.
 
-    If you pass a callable, this should be a unary function. It will be passed the whole dictionnary.
+    If you pass a callable, this should be a unary function. It will be passed the whole dictionary.
     This way, it is possible to set a default value for a field using other fields of a document. For example:
 
         schema = Schema(
@@ -128,8 +128,8 @@ def Default(val):
 class Discard(tuple):
     """
     `Discard` should be placed after a field name in a chain. 
-    `Discard` is used to indicate that if a key in the input dictionnary contains a particular value, this
-    key should be regarded as absent from the dictionnary.
+    `Discard` is used to indicate that if a key in the input dictionary contains a particular value, this
+    key should be regarded as absent from the dictionary.
 
     >>> schema = Schema(
             ['name', Type(str)],
@@ -229,7 +229,7 @@ class Chain(object):
 class Schema(Filter):
     """
     Defines a sequence of validation and/or transformation rules, to validate and/or transform
-    python dictionnaries.
+    python dictionaries.
 
     Example:
         address_form = Schema(
@@ -239,7 +239,7 @@ class Schema(Filter):
             ['country', Type(str), ('France', 'Belgium', 'Switzerland')]
         )
 
-    To validate a dictionnary, use the `validate` method:
+    To validate a dictionary, use the `validate` method:
         
         address = {
             'house number': 91,
@@ -254,8 +254,8 @@ class Schema(Filter):
 
     Quite often, not only do you want to validate the data, you also want to transform it.
 
-    When using the `validate` method, the original dictionnary is never modified.
-    It is, however, possible to obtain a transformed version of the input dictionnary as a 
+    When using the `validate` method, the original dictionary is never modified.
+    It is, however, possible to obtain a transformed version of the input dictionary as a 
      return value of the `validate` method.
     For that, use the modification instructions when you define your schema.
     The modification instructions are Default, Delete, Discard, MoveTo, Save and SaveAs.
@@ -301,13 +301,13 @@ class Schema(Filter):
     The Schema constructor takes an optional `unexpected_keys` argument.
     It defines what should be done with keys that don't appear in your schema.
 
-    With `unexpected_keys=Schema.FAIL`, the schema will refuse to validate a dictionnary if it 
+    With `unexpected_keys=Schema.FAIL`, the schema will refuse to validate a dictionary if it 
      contains unknown keys. This is the default.
-    With `unexpected_keys=Schema.KEEP`, the schema will validate a dictionnary even if it 
-     contains unknown keys. These unknown items will appear in the output dictionnary (the dictionnary 
+    With `unexpected_keys=Schema.KEEP`, the schema will validate a dictionary even if it 
+     contains unknown keys. These unknown items will appear in the output dictionary (the dictionary 
      returned by the `validate` method).
-    With `unexpected_keys=Schema.DELETE`, the schema will agree to validate a dictionnary that
-     contains unknown keys, but these items won't appear in the output dictionnary.
+    With `unexpected_keys=Schema.DELETE`, the schema will agree to validate a dictionary that
+     contains unknown keys, but these items won't appear in the output dictionary.
     """
 
     FAIL = 1
@@ -391,11 +391,11 @@ class Schema(Filter):
     def validate(self, dict_, lang = None):
         # we only override it to add the docstring
         """
-        Validates a dictionnary against the defined schema.
+        Validates a dictionary against the defined schema.
         
-        On success, returns a shallow copy of the original dictionnary.
-        If the schema uses modifcation instructions (Delete, Discard, MoveTo, Save or SaveAs),
-         the return value will be a modified version of the original dictionnary.
+        On success, returns a shallow copy of the original dictionary.
+        If the schema uses modification instructions (Default, Delete, Discard, MoveTo, Save or SaveAs),
+         the return value will be a modified version of the original dictionary.
 
         On failure (if the input doesn't validate against the schema rules), a ValidationError is raised.
         The error details are to be found in the error_details attribute of the ValidationError object.
@@ -436,8 +436,8 @@ class StorageInstruction(object):
 class _SaveClass(StorageInstruction):
     """
     Use Save at the end of a chain in order to save the current value under the current key.
-    Keep in mind that it doesn't modify the input dictionnary. The modifcation is seen only
-     in the output dictionnary (the return value of the `validate` method).
+    Keep in mind that it doesn't modify the input dictionary. The modification is seen only
+     in the output dictionary (the return value of the `validate` method).
 
     Example:
         
@@ -461,8 +461,8 @@ del _SaveClass
 class SaveAs(StorageInstruction):
     """
     Use SaveAs at the end of chain to save the current value under another key.
-    Keep in mind that it doesn't modify the input dictionnary. The modifcation is seen only
-     in the output dictionnary (the return value of the `validate` method).
+    Keep in mind that it doesn't modify the input dictionary. The modification is seen only
+     in the output dictionary (the return value of the `validate` method).
 
     Example:
 
@@ -481,8 +481,8 @@ class MoveTo(StorageInstruction):
 
     """
     Use MoveTo at the end of a chain to move an item under another key, and delete the current key.
-    Keep in mind that it doesn't modify the input dictionnary. The modifcation is seen only
-     in the output dictionnary (the return value of the `validate` method).
+    Keep in mind that it doesn't modify the input dictionary. The modification is seen only
+     in the output dictionary (the return value of the `validate` method).
 
     Example:
 
@@ -505,8 +505,8 @@ class _DeleteClass(StorageInstruction):
 
     """
     Use Delete at the end of a chain to delete the current key.
-    Keep in mind that it doesn't modify the input dictionnary. The modifcation is seen only
-     in the output dictionnary (the return value of the `validate` method).
+    Keep in mind that it doesn't modify the input dictionary. The modification is seen only
+     in the output dictionary (the return value of the `validate` method).
 
     Example:
 
@@ -530,7 +530,7 @@ class _DeleteClass(StorageInstruction):
                 {'username': 'TheKing', 'password': 'hackme', 'password2': 'hackme'}
             )
 
-        This returns the dictionnary:
+        This returns the dictionary:
         
             {
                 'username': 'TheKing',
