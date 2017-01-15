@@ -314,7 +314,8 @@ class Schema(Filter):
     KEEP = 2
     DELETE = 3
 
-    def __init__(self, *lists, unexpected_keys = FAIL):
+    def __init__(self, *lists, **kwargs):
+        unexpected_keys, = _get_kwargs(kwargs, (('unexpected_keys', Schema.FAIL),))
         self.chains = [Chain(*lst) for lst in lists]
         self.unexpected_keys_policy = unexpected_keys
         self.expected_fields = set(functools.reduce(
@@ -607,7 +608,8 @@ class Do(Filter):
      the filters in the sequence.
     """ 
 
-    def __init__(self, *filters, error_message = None):
+    def __init__(self, *filters, **kwargs):
+        error_message, = _get_kwargs(kwargs, (('error_message', None),))
         self._filters = [to_filter(f) for f in filters]
         self.error_message = error_message
 
@@ -699,7 +701,8 @@ class Type(Filter):
 
         # This would allow all subclasses of basestring.
     """
-    def __init__(self, type_, *types, subclasses = False):
+    def __init__(self, type_, *types, **kwargs):
+        subclasses, = _get_kwargs(kwargs, (('subclasses', False),))
         self.types = (type_,) + tuple(types)
         self._subclasses = subclasses
     
@@ -875,3 +878,18 @@ def to_filter(f):
 
 ToInt = Apply(int, error_message = _("This should be an integer.")) # useful to get i18ned error messages
 ToFloat = Apply(float, error_message = _("This should be a number."))
+
+
+# function to extract named keyword arguments from **kwargs (required for Python 2
+# compatibility, see https://github.com/leforestier/naval/issues/1 )
+def _get_kwargs(kwargs, defaults):
+    result = []
+    for (key, default) in defaults:
+        result.append(kwargs.pop(key, default))
+    if kwargs:
+        raise ValueError(
+            "Unsupported keyword argument {kwarg}.".format(
+                kwarg = next(k for k in kwargs.keys())
+            )
+        )
+    return result
