@@ -1,3 +1,6 @@
+.. image:: https://travis-ci.org/leforestier/naval.svg
+    :target: https://travis-ci.org/leforestier/naval
+
 -----------------------------
 Naval is a validation library
 -----------------------------
