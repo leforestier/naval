@@ -163,6 +163,17 @@ class Test(unittest.TestCase):
             'http://localhost/'
         ):
             self.assertRaises(ValidationError, schema.validate, {'url': url})
+            
+    def test_domain(self):
+        for domain in ('ex-ample.com', 'a.b-c.de'):
+            self.assertEqual(Domain.validate(domain), domain)
+        for domain in (
+            '123.123.123',
+            'example.com/',
+            'http://www.google.com',
+            '-example.com'
+        ):
+            self.assertRaises(ValidationError, Domain.validate, domain)
     
     def test_save(self):
         # Testing Save and the callable filter
@@ -238,13 +249,21 @@ class Test(unittest.TestCase):
         )
 
     def test_i18n(self):
-        schema = Schema(['name'], ['email'])
+        schema = Schema(['name'], ['email'], ['domain', Domain])
+        
         with self.assertRaises(ValidationError) as cm:
-            schema.validate({'name': 'marcel'}, lang='fr')
+            schema.validate({'name': 'marcel', 'domain': 'example.com/'}, lang='fr')
+        
         self.assertEqual(
             cm.exception.error_details['email'],
             "Champ manquant."
         )
+        
+        self.assertEqual(
+            cm.exception.error_details['domain'],
+            "Ce n'est pas un nom de domaine valide."
+        )
+        
 
     def test_each(self):
         schema = Schema(

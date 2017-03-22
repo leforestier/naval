@@ -6,83 +6,86 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-06 16:06+0100\n"
+"POT-Creation-Date: 2017-03-22 13:21+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: ENGLISH <https://github.com/leforestier/naval>\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.11\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SearchPath-0: core.py\n"
+"X-Poedit-SearchPath-1: util.py\n"
 
-#: core.py:329
+#: core.py:336
 #, python-brace-format
 msgid "Unexpected key {key}."
 msgstr ""
 
-#: core.py:349
+#: core.py:356
 msgid "Field is missing."
 msgstr ""
 
-#: core.py:372
+#: core.py:378
 msgid "Couldn't compute field."
 msgstr ""
 
-#: core.py:566 core.py:578 core.py:841
+#: core.py:572 core.py:584 core.py:849
 msgid "Incorrect value."
 msgstr ""
 
-#: core.py:661
+#: core.py:668
 #, python-format
 msgid "Item #%s: "
 msgstr ""
 
-#: core.py:711
+#: core.py:719
 #, python-brace-format
 msgid "Wrong type. Expected {type}. Got {wrong_type} instead."
 msgstr ""
 
-#: core.py:718
+#: core.py:726
 #, python-brace-format
 msgid "Wrong type. Expected one of {types}. Got {wrong_type} instead."
 msgstr ""
 
-#: core.py:761
+#: core.py:769
 msgid "This value shouldn't be empty."
 msgstr ""
 
-#: core.py:762
+#: core.py:770
 #, python-brace-format
 msgid "The value is too short. Min length is {min_length}."
 msgstr ""
 
-#: core.py:763
+#: core.py:771
 #, python-brace-format
 msgid "The value is too long. Max length is {max_length}."
 msgstr ""
 
-#: core.py:764
+#: core.py:772
 #, python-brace-format
 msgid "The length should be {length}."
 msgstr ""
 
-#: core.py:807
+#: core.py:815
 #, python-brace-format
 msgid "The minimum is {min}."
 msgstr ""
 
-#: core.py:808
+#: core.py:816
 #, python-brace-format
 msgid "The maximum is {max}."
 msgstr ""
 
-#: core.py:871
+#: core.py:879
 msgid "This should be an integer."
 msgstr ""
 
-#: core.py:872
+#: core.py:880
 msgid "This should be a number."
 msgstr ""
 
@@ -90,6 +93,10 @@ msgstr ""
 msgid "This is not a valid email address."
 msgstr ""
 
-#: util.py:24
+#: util.py:19
+msgid "This is not a valid domain name."
+msgstr ""
+
+#: util.py:34
 msgid "This is not a valid url."
 msgstr ""

@@ -1,8 +1,8 @@
-from validators import email, ValidationFailure
+from validators import email, domain, ValidationFailure
 from naval.core import *
 from postpone import LazyString as _
 
-__all__ = ['Email', 'Url']
+__all__ = ['Email', 'Domain', 'Url']
 
 Email = Assert(
     lambda v: not isinstance(email(v, whitelist = ()), ValidationFailure),
@@ -12,6 +12,16 @@ Email = Assert(
 Email.__doc__ = """
     Email validator.
     This validator uses the email validator from the "validators" library: https://github.com/kvesteri/validators
+"""
+
+Domain = Assert(
+    lambda v: not isinstance(domain(v), ValidationFailure),
+    error_message = _("This is not a valid domain name.")
+)
+
+Domain.__doc__ = """
+    Domain name validator.
+    This validator uses the domain name validator from the "validators" library: https://github.com/kvesteri/validators
 """
 
 Url = Do(

@@ -96,4 +96,4 @@ __author__ = "Benjamin Le Forestier (benjamin@leforestier.org)"
 __version__ = '0.6.2'
 
 from naval.core import *
-from naval.util import Email, Url
+from naval.util import Email, Domain, Url
