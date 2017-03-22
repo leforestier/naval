@@ -238,7 +238,6 @@ Email validator.
 
 Internally, this filter uses the email validation function from the *validators* library: https://github.com/kvesteri/validators
 
-
 .. code:: python
 
     >>> Email.validate('email@example.com')
@@ -266,6 +265,24 @@ The regex used to validate urls was borrowed from the Spoon php library: http://
     >>> Url.validate('http://0.0.0.0')
     ...
     ValidationError: This is not a valid url.
+    
+Domain
+------
+
+Domain name validator.
+
+Internally, this filter uses the domain name validation function from the *validators* library: https://github.com/kvesteri/validators
+
+.. code:: python
+
+    >>> Domain.validate('example.com')
+    'example.com'
+
+.. code:: python
+
+    >>> Domain.validate('example.com/')
+    ...
+    ValidationError: This is not a valid domain name.
 
 Assert
 ------
