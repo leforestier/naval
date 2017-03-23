@@ -656,7 +656,7 @@ class Each(Filter):
     ITEM_START = 1
 
     def __init__(self, filtr):
-        self._filter = filtr
+        self._filter = to_filter(filtr)
 
     def run(self, value):
         result = []
