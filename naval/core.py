@@ -664,9 +664,12 @@ class Each(Filter):
             try:
                 result.append(self._filter.run(val))
             except ValidationError as exc:
-                raise ValidationError(
-                    _("Item #%s: ") % (i + self.__class__.ITEM_START) + exc.error_details
-                )
+                if isinstance(exc.error_details, dict):
+                    raise ValidationError({i : exc.error_details})
+                else:
+                    raise ValidationError(
+                        _("Item #%s: ") % (i + self.__class__.ITEM_START) + exc.error_details
+                    )
         if isinstance(value, (tuple, set)):
             result = type(value)(result)
         return result
