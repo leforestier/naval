@@ -10,7 +10,7 @@ package_data = {'naval': ['locale/naval.pot'] + locale_files + test_files}
 
 setup(
     name = 'naval',
-    version = '0.8.0',
+    version = '0.9.0',
     packages = ['naval'],
     package_data = package_data,
     include_package_data = True,
