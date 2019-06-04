@@ -17,10 +17,16 @@ Email.__doc__ = """
     This validator uses the email validator from the "validators" library: https://github.com/kvesteri/validators
 """
 
+
+
 Domain = Do(
     Type(str),
     Assert(
-        lambda v: not isinstance(domain(v), ValidationFailure),
+        lambda v: (
+            not isinstance(domain(v), ValidationFailure)
+            and
+            not v.rsplit('.', 1)[-1].isdigit() # TLD shouldn't be all digits
+        ),
         error_message = _("This is not a valid domain name.")
     )
 )
