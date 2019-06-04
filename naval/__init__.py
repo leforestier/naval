@@ -43,7 +43,7 @@ Validation and transformation
     >>> from naval import *
     >>> from passlib.hash import bcrypt # we're going to use the passlib library to encrypt passwords
 
-    >>> registration_form = Schema(    
+    >>> registration_form = Schema(
             ['username', Type(str), Length(min=3, max=16)],
             ['password', Type(str)],
             ['password2'],
@@ -93,7 +93,7 @@ Supply a ``lang`` keyword argument to the ``validate`` method to obtain translat
 """
 
 __author__ = "Benjamin Le Forestier (benjamin@leforestier.org)"
-__version__ = '0.9.0'
+__version__ = '1.0.0'
 
 from naval.core import *
 from naval.util import Email, Domain, Url
