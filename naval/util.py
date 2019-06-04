@@ -4,9 +4,12 @@ from postpone import LazyString as _
 
 __all__ = ['Email', 'Domain', 'Url']
 
-Email = Assert(
-    lambda v: not isinstance(email(v, whitelist = ()), ValidationFailure),
-    error_message = _("This is not a valid email address.")
+Email = Do(
+    Type(str),
+    Assert(
+        lambda v: not isinstance(email(v, whitelist = ()), ValidationFailure),
+        error_message = _("This is not a valid email address.")
+    )
 )
 
 Email.__doc__ = """
@@ -14,9 +17,12 @@ Email.__doc__ = """
     This validator uses the email validator from the "validators" library: https://github.com/kvesteri/validators
 """
 
-Domain = Assert(
-    lambda v: not isinstance(domain(v), ValidationFailure),
-    error_message = _("This is not a valid domain name.")
+Domain = Do(
+    Type(str),
+    Assert(
+        lambda v: not isinstance(domain(v), ValidationFailure),
+        error_message = _("This is not a valid domain name.")
+    )
 )
 
 Domain.__doc__ = """
@@ -35,6 +41,5 @@ Url = Do(
 )
 Url.__doc__ = """
     Url validator.
-    The regex used is stolen from the php Spoon Library: https://github.com/spoon/library/blob/master/spoon/filter/filter.php    
+    The regex used is stolen from the php Spoon Library: https://github.com/spoon/library/blob/master/spoon/filter/filter.php
 """
-
