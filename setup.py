@@ -14,7 +14,7 @@ setup(
     packages = ['naval'],
     package_data = package_data,
     include_package_data = True,
-    install_requires = ['postpone>=0.2.0', 'validators>=0.10.2', 'future'],
+    install_requires = ['postpone>=0.2.0', 'validators==0.10.2', 'future'],
     author = 'Benjamin Le Forestier',
     author_email = 'benjamin@leforestier.org',
     url = 'https://github.com/leforestier/naval',
