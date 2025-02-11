@@ -1,3 +1,6 @@
+import inspect
+if not hasattr(inspect, 'getargspec'):
+    inspect.getargspec = inspect.getfullargspec
 from validators import email, domain, ValidationFailure
 from naval.core import *
 from postpone import LazyString as _
